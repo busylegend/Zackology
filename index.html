@@ -1,0 +1,1175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d1c">
+<title>ZACKVERSE ✨</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --night: #070b17;
+  --navy: #101a32;
+  --gold: #e7c77e;
+  --gold-light: #fff0c2;
+  --muted: #b6bdd0;
+  --white: #fffaf0;
+  --panel: rgba(255,255,255,.055);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--white);
+  background: var(--night);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+button, input { font: inherit; }
+
+button { cursor: pointer; }
+
+h1, h2, h3, .serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+h2 {
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.02;
+  margin: 12px 0 20px;
+}
+
+p {
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+a { color: inherit; }
+
+.gold { color: var(--gold); }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: .7rem;
+  color: var(--gold);
+}
+
+.section {
+  position: relative;
+  padding: 105px 22px;
+  overflow: hidden;
+}
+
+.wrap {
+  width: min(100%, 1000px);
+  margin: auto;
+}
+
+.center { text-align: center; }
+
+.intro {
+  max-width: 650px;
+  margin: 0 auto 48px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+  border: 1px solid var(--gold);
+  border-radius: 40px;
+  background: var(--gold);
+  color: #10101a;
+  font-size: .75rem;
+  letter-spacing: 1.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px #e7c77e33;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--gold);
+}
+
+.btn.secondary:hover {
+  background: #e7c77e12;
+}
+
+.small-note {
+  font-size: .8rem;
+  opacity: .8;
+}
+
+.hidden { display: none !important; }
+
+/* STAR BACKGROUND */
+#sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sky-dot {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff1cb;
+  opacity: .5;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .15; transform: scale(.7); }
+  to { opacity: .8; transform: scale(1.3); }
+}
+
+/* OPENING */
+#opening {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 35px 22px;
+  background:
+    radial-gradient(ellipse at 50% 44%, #26365d66 0%, transparent 48%),
+    linear-gradient(180deg, #070b17, #10172a 70%, #070b17);
+}
+
+.opening-content {
+  width: min(100%, 760px);
+  animation: appear 1.6s ease both;
+}
+
+.logo-mark {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 32px;
+  border: 1px solid #e7c77e66;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-size: 1.6rem;
+  box-shadow: 0 0 50px #e7c77e15;
+}
+
+#opening h1 {
+  font-size: clamp(4rem, 15vw, 8.7rem);
+  line-height: .85;
+  font-weight: 400;
+  letter-spacing: -3px;
+  margin: 20px 0;
+  background: linear-gradient(110deg, #fff7dd, #d7b466, #fff2c7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.opening-subtitle {
+  letter-spacing: 3px;
+  font-size: .72rem;
+  line-height: 2;
+  text-transform: uppercase;
+  margin: 28px auto 38px;
+  max-width: 450px;
+}
+
+#opening .hint {
+  display: block;
+  margin-top: 23px;
+  font-size: .75rem;
+  color: #aab2c8;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 14px clamp(15px, 4vw, 45px);
+  background: #080d1ce8;
+  border-bottom: 1px solid #ffffff12;
+  backdrop-filter: blur(15px);
+}
+
+.nav-brand {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 2px;
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: .7rem;
+  color: #d5d9e6;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+@media(max-width:650px) {
+  .nav-links {
+    max-width: 65%;
+    overflow-x: auto;
+    gap: 16px;
+    scrollbar-width: none;
+  }
+  .nav-links a { white-space: nowrap; }
+}
+
+/* HERO */
+#universe {
+  background:
+    radial-gradient(ellipse at 50% 0%, #26385f6b, transparent 60%);
+}
+
+.hero-orbit {
+  width: min(75vw, 330px);
+  aspect-ratio: 1;
+  margin: 15px auto 45px;
+  position: relative;
+  border: 1px solid #e7c77e35;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.hero-orbit::before,
+.hero-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 1px solid #e7c77e28;
+  border-radius: 50%;
+}
+
+.hero-orbit::after {
+  inset: -9%;
+  border-style: dashed;
+  opacity: .4;
+  animation: rotate 40s linear infinite;
+}
+
+@keyframes rotate { to { transform: rotate(360deg); } }
+
+.hero-star {
+  font-size: clamp(5rem, 18vw, 8rem);
+  color: var(--gold-light);
+  text-shadow: 0 0 25px #e7c77e99, 0 0 80px #e7c77e55;
+  animation: starPulse 3s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+  0%,100% { transform: scale(1); filter: brightness(.9); }
+  50% { transform: scale(1.08); filter: brightness(1.2); }
+}
+
+/* DAD'S STAR */
+#dad {
+  background: linear-gradient(180deg, #080d1c, #0b1223, #080d1c);
+}
+
+.star-stage {
+  min-height: 300px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 35px 0;
+  border-radius: 25px;
+  background: radial-gradient(ellipse at center, #24365c55, transparent 65%);
+}
+
+.single-star {
+  font-size: clamp(5rem, 18vw, 9rem);
+  color: #fff0b9;
+  text-shadow: 0 0 22px #ffe7a8, 0 0 75px #e7c77e88;
+  animation: starPulse 4s ease-in-out infinite;
+}
+
+.star-label {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  color: var(--gold);
+  font-size: .68rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.tribute {
+  max-width: 720px;
+  margin: auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  color: #e6e7ee;
+  line-height: 1.8;
+}
+
+.tribute p { color: inherit; }
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 27px 22px;
+  border: 1px solid #ffffff16;
+  border-radius: 18px;
+  background: var(--panel);
+  transition: .35s;
+}
+
+.card:hover {
+  border-color: #e7c77e70;
+  transform: translateY(-5px);
+  background: #e7c77e0a;
+}
+
+.card .symbol {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.65rem;
+  margin: 0 0 10px;
+  font-weight: 500;
+  color: var(--gold-light);
+}
+
+.card p { font-size: .9rem; }
+
+@media(max-width:700px) {
+  .cards { grid-template-columns: 1fr; }
+  .section { padding: 78px 20px; }
+}
+
+/* STORY */
+.story-list {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+  margin: auto;
+}
+
+.story-item {
+  border: 1px solid #ffffff1c;
+  border-radius: 14px;
+  background: #ffffff06;
+  overflow: hidden;
+}
+
+.story-toggle {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--white);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  gap: 15px;
+}
+
+.story-toggle span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.story-number {
+  color: var(--gold);
+  font-size: .8rem;
+}
+
+.story-toggle strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.story-toggle .plus {
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+.story-content {
+  padding: 0 23px 24px 57px;
+  color: var(--muted);
+  line-height: 1.8;
+  display: none;
+}
+
+.story-item.open .story-content { display: block; }
+
+/* FAMILY MESSAGES */
+.message-cloud {
+  min-height: 210px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  margin: 25px 0 35px;
+}
+
+.name-bubble {
+  border: 1px solid #e7c77e60;
+  color: var(--gold-light);
+  background: #e7c77e0a;
+  padding: 14px 20px;
+  border-radius: 50px;
+  transition: .3s;
+}
+
+.name-bubble:hover {
+  background: var(--gold);
+  color: #111522;
+  transform: translateY(-4px);
+}
+
+.message-panel {
+  max-width: 620px;
+  min-height: 200px;
+  padding: 30px;
+  margin: auto;
+  border: 1px solid #e7c77e4a;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #17213a, #0b1020);
+  text-align: center;
+}
+
+.message-panel .from {
+  font-size: .7rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.message-panel h3 {
+  font-size: 2rem;
+  margin: 12px 0;
+}
+
+.message-panel p { white-space: pre-wrap; }
+
+/* LETTER */
+.letter-area {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.envelope {
+  position: relative;
+  width: min(290px, 85vw);
+  height: 190px;
+  margin: 40px auto;
+  border: 1px solid #e7c77e77;
+  background: linear-gradient(145deg, #d8bd80, #8f713b);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 20px 80px #0008;
+  transition: .4s;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, transparent 49%, #f4dfac 50%, transparent 51%);
+  opacity: .7;
+  pointer-events: none;
+}
+
+.envelope button {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #fff0c2;
+  background: #11182a;
+  color: var(--gold-light);
+  padding: 15px 20px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  font-size: .7rem;
+}
+
+.letter {
+  max-width: 700px;
+  margin: 20px auto 0;
+  padding: clamp(22px, 5vw, 48px);
+  border: 1px solid #e7c77e55;
+  border-radius: 18px;
+  background: #10192b;
+  text-align: left;
+  animation: appear .8s ease both;
+}
+
+.letter h3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-top: 0;
+}
+
+/* SECRET */
+.secret-box {
+  max-width: 550px;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #ffffff1a;
+  border-radius: 20px;
+  background: #ffffff06;
+}
+
+.secret-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.secret-input input {
+  min-width: 0;
+  flex: 1;
+  background: #080d1c;
+  color: white;
+  border: 1px solid #ffffff30;
+  padding: 14px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.secret-input input:focus { border-color: var(--gold); }
+
+#secret-result {
+  margin-top: 22px;
+  color: var(--gold-light);
+  line-height: 1.8;
+}
+
+@media(max-width:500px) {
+  .secret-input { flex-direction: column; }
+}
+
+/* ENDING */
+#ending {
+  min-height: 90svh;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at center, #1a2948, #070b17 70%);
+}
+
+footer {
+  text-align: center;
+  padding: 28px 18px;
+  border-top: 1px solid #ffffff12;
+  font-size: .75rem;
+  color: #858da4;
+}
+
+footer span { color: var(--gold); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s, transform .8s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e7c77e66;
+  border-radius: 50%;
+  background: #10182c;
+  color: var(--gold);
+  z-index: 40;
+}
+</style>
+</head>
+
+<body>
+<div id="sky" aria-hidden="true"></div>
+
+<!-- OPENING SCREEN -->
+<section id="opening">
+  <div class="opening-content">
+    <div class="logo-mark">✦</div>
+    <div class="eyebrow">A little universe, made for you</div>
+    <h1>ZACKVERSE</h1>
+    <p class="opening-subtitle">
+      One extraordinary man.<br>
+      A thousand reasons to celebrate.
+    </p>
+    <button class="btn" id="enter-btn">Enter your universe ✦</button>
+    <span class="hint">Best experienced with the sound of your own memories.</span>
+  </div>
+</section>
+
+<!-- MAIN SITE -->
+<div id="main-site" class="hidden">
+
+<nav>
+  <a href="#universe" class="nav-brand">ZACKVERSE ✦</a>
+  <div class="nav-links">
+    <a href="#dad">Our Star</a>
+    <a href="#files">The Zack Files</a>
+    <a href="#family">Messages</a>
+    <a href="#letter">A Letter</a>
+  </div>
+</nav>
+
+<!-- WELCOME -->
+<section id="universe" class="section center">
+  <div class="wrap reveal">
+    <div class="eyebrow">Welcome to your world, Uncle Zack</div>
+    <div class="hero-orbit">
+      <div class="hero-star">✦</div>
+    </div>
+    <h2>This universe has<br><span class="gold">your name on it.</span></h2>
+    <p class="intro">
+      Today isn't just another date on the calendar.
+      It's a celebration of you — your laughter, your heart,
+      your unforgettable ways, and the lives that are better
+      because you're part of them.
+    </p>
+    <button class="btn secondary" onclick="goTo('dad')">Let's take a little journey ↓</button>
+  </div>
+</section>
+
+<!-- DAD'S STAR -->
+<section id="dad" class="section center">
+  <div class="wrap reveal">
+    <div class="eyebrow">Some bonds deserve their own place in the sky</div>
+    <h2>For two friends<br><span class="gold">who were brothers.</span></h2>
+
+    <div class="star-stage">
+      <!-- This is intentionally the ONLY star in this scene. -->
+      <div class="single-star" aria-label="One shining star">✦</div>
+      <div class="star-label">One star. One special bond.</div>
+    </div>
+
+    <div class="tribute">
+      <p>
+        Uncle Zack, there is a part of your story that deserves
+        to be held with a little extra tenderness.
+      </p>
+      <p>
+        The friendship you shared with my dad was more than a
+        passing chapter. It was a bond that formed part of your
+        lives, a friendship that mattered, and a connection that
+        will always have a place in my heart.
+      </p>
+      <p>
+        I wish I could watch the two of you share one more laugh,
+        exchange one more look that only you understood, and enjoy
+        one more moment of simply being yourselves together.
+      </p>
+      <p>
+        I cannot recreate those moments, but I can honour what
+        they mean to me. And when I think of the love, history,
+        and friendship you shared, I imagine one special star
+        shining quietly above everything else.
+      </p>
+      <p class="gold">
+        This star is for Dad. And this moment is for the friendship
+        that will always be part of your story.
+      </p>
+    </div>
+
+    <p class="small-note">
+      A tribute from your niece — not a message in Dad's words.
+    </p>
+  </div>
+</section>
+
+<!-- THE ZACK FILES -->
+<section id="files" class="section">
+  <div class="wrap reveal center">
+    <div class="eyebrow">Classified information</div>
+    <h2>The <span class="gold">Zack Files.</span></h2>
+    <p class="intro">
+      After years of observation, the family has uncovered
+      some very important facts about one Uncle Zack.
+      Proceed with caution. There may be evidence of mischief.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <div class="symbol">😂</div>
+        <h3>Professional Menace</h3>
+        <p>
+          Capable of turning an ordinary moment into a story
+          people will bring up for years. Investigation ongoing.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="symbol">🫶</div>
+        <h3>The Soft Side</h3>
+        <p>
+          Beneath the jokes and personality is a man whose
+          presence and care can mean more than he knows.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="symbol">👑</div>
+        <h3>One of One</h3>
+        <p>
+          No duplicates found. No replacement available.
+          The original Uncle Zack remains the family favourite.
+        </p>
+      </article>
+    </div>
+
+    <div style="margin-top:35px">
+      <button class="btn secondary" onclick="showRandomFact()">Reveal another Zack fact</button>
+      <p id="random-fact" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY CHAPTERS -->
+<section id="story" class="section">
+  <div class="wrap reveal center">
+    <div class="eyebrow">A story still being written</div>
+    <h2>The story of <span class="gold">Zack.</span></h2>
+    <p class="intro">
+      Every person is a collection of chapters.
+      Here are a few ways to think about the man we're celebrating.
+      Tap each chapter to open it.
+    </p>
+
+    <div class="story-list">
+      <article class="story-item">
+        <button class="story-toggle" aria-expanded="false">
+          <span><span class="story-number">01</span><strong>The Man</strong></span>
+          <span class="plus">＋</span>
+        </button>
+        <div class="story-content">
+          The man behind the name. The personality, the lessons,
+          the laughter, the strength, and the little things that
+          make Uncle Zack unmistakably himself.
+        </div>
+      </article>
+
+      <article class="story-item">
+        <button class="story-toggle" aria-expanded="false">
+          <span><span class="story-number">02</span><strong>The Family</strong></span>
+          <span class="plus">＋</span>
+        </button>
+        <div class="story-content">
+          Family isn't only about sharing a surname.
+          It's about the moments we keep, the ways we show up,
+          the stories we tell, and the place we make for one another.
+        </div>
+      </article>
+
+      <article class="story-item">
+        <button class="story-toggle" aria-expanded="false">
+          <span><span class="story-number">03</span><strong>The Friendships</strong></span>
+          <span class="plus">＋</span>
+        </button>
+        <div class="story-content">
+          Some friendships become part of who we are.
+          They leave us with memories, lessons, laughter,
+          and connections that remain meaningful long after
+          a particular moment has passed.
+        </div>
+      </article>
+
+      <article class="story-item">
+        <button class="story-toggle" aria-expanded="false">
+          <span><span class="story-number">04</span><strong>The Next Chapter</strong></span>
+          <span class="plus">＋</span></span>
+        </button>
+        <div class="story-content">
+          There's still more life to experience, more memories
+          to create, more laughter to share, and more beautiful
+          chapters waiting to be written. This isn't the end
+          of a story. It's another beginning.
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY MESSAGES -->
+<section id="family" class="section center">
+  <div class="wrap reveal">
+    <div class="eyebrow">Little words, a lot of love</div>
+    <h2>Messages from<br><span class="gold">your people.</span></h2>
+    <p class="intro">
+      The people who know you have something to say.
+      Tap a name to open their message.
+    </p>
+
+    <div class="message-cloud">
+      <button class="name-bubble" onclick="openMessage('Paul')">Paul ✉</button>
+      <button class="name-bubble" onclick="openMessage('Your Wife')">Your Wife ✉</button>
+      <button class="name-bubble" onclick="openMessage('Dama')">Dama ✉</button>
+      <button class="name-bubble" onclick="openMessage('Caro')">Caro ✉</button>
+      <button class="name-bubble" onclick="openMessage('Sylvia')">Sylvia ✉</button>
+    </div>
+
+    <div class="message-panel" aria-live="polite">
+      <div class="from" id="message-from">A little surprise</div>
+      <h3 id="message-title">Choose a name ✨</h3>
+      <p id="message-text">
+        Someone's words are waiting here.
+        Tap one of the names above to discover them.
+      </p>
+    </div>
+    <p class="small-note">
+      The sample messages must be replaced with the real wishes
+      from your family before sharing the website.
+    </p>
+  </div>
+</section>
+
+<!-- PERSONAL LETTER -->
+<section id="letter" class="section">
+  <div class="wrap reveal center">
+    <div class="eyebrow">Something from the heart</div>
+    <h2>A letter for <span class="gold">my uncle.</span></h2>
+    <p class="intro">
+      Not a speech. Not a grand explanation.
+      Just a little something from your niece.
+    </p>
+
+    <div class="letter-area">
+      <div class="envelope">
+        <button id="letter-btn">OPEN YOUR LETTER ✉</button>
+      </div>
+
+      <div id="letter-content" class="letter hidden">
+        <h3>Dear Uncle Zack,</h3>
+        <p>
+          Happy birthday to a man who holds a special place in my life.
+          Today, I wanted to do something a little different — something
+          that would remind you that you are loved, appreciated, and
+          worth celebrating.
+        </p>
+        <p>
+          Life doesn't always give us the perfect words or the perfect
+          moments, but I hope you never have to wonder whether you
+          matter to the people who love you.
+        </p>
+        <p>
+          I hope this new chapter brings you laughter that comes
+          easily, peace that stays, genuine people, answered prayers,
+          and reasons to be excited about what lies ahead.
+        </p>
+        <p>
+          And because a little mischief is part of the experience,
+          please remember that being my uncle means you're officially
+          stuck with me. Birthday privileges do not include escaping
+          my love, my random thoughts, or my occasional nonsense.
+        </p>
+        <p>
+          Thank you for being you. I hope you feel celebrated today
+          and in all the ordinary days that follow.
+        </p>
+        <p class="gold serif" style="font-size:1.5rem">
+          With so much love,<br>Your niece. ❤️
+        </p>
+        <p class="small-note">
+          You can edit this letter in the code to make it more personal.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECRET MESSAGE -->
+<section id="secret" class="section center">
+  <div class="wrap reveal">
+    <div class="eyebrow">Restricted access</div>
+    <h2>One last <span class="gold">secret.</span></h2>
+    <p class="intro">
+      Every universe has a hidden corner.
+      This one is reserved for someone who knows the magic word.
+    </p>
+
+    <div class="secret-box">
+      <div style="font-size:2.5rem">🔐</div>
+      <p>Enter the secret word to unlock a final birthday message.</p>
+      <form class="secret-input" id="secret-form">
+        <input id="secret-input" type="text" placeholder="Enter secret word..." autocomplete="off" aria-label="Secret word">
+        <button class="btn" type="submit">Unlock</button>
+      </form>
+      <div id="secret-result" aria-live="polite"></div>
+    </div>
+    <p class="small-note">
+      Set your own secret word in the JavaScript near the bottom of this file.
+    </p>
+  </div>
+</section>
+
+<!-- FINAL STAR -->
+<section id="ending" class="section center">
+  <div class="wrap reveal">
+    <div class="eyebrow">Before you leave this universe</div>
+    <div class="star-stage">
+      <!-- Again, Dad's is the ONLY star in this scene. -->
+      <div class="single-star">✦</div>
+      <div class="star-label">A friendship remembered</div>
+    </div>
+
+    <h2>Some people are<br><span class="gold">part of our forever.</span></h2>
+    <p class="intro">
+      Uncle Zack, may this birthday remind you of the people
+      who love you, the friendships that shaped you, the family
+      that celebrates you, and the beautiful possibilities still
+      waiting ahead.
+    </p>
+    <p class="serif gold" style="font-size:1.7rem">
+      Happy Birthday, Uncle Zack. ❤️
+    </p>
+    <button class="btn secondary" onclick="goTo('opening')">Return to the beginning ↗</button>
+  </div>
+</section>
+
+<footer>
+  Made with <span>♥</span>, memories, and a little bit of magic.
+  <br><span>ZACKVERSE</span> · A universe created just for you.
+</footer>
+
+<button id="back-to-top" onclick="goTo('opening')" aria-label="Back to top">↑</button>
+</div>
+
+<script>
+/* =====================================================
+   ZACKVERSE SETTINGS
+   Personalise the messages and secret word here.
+===================================================== */
+
+/*
+  Replace each sample message with the real message
+  from that family member before publishing.
+*/
+const familyMessages = {
+  "Paul": {
+    title: "A message from Paul",
+    text: "Happy birthday, Zack! Wishing you a beautiful year ahead filled with happiness, good health, laughter, and many blessings. May the year ahead give you plenty of reasons to smile. — Paul"
+  },
+  "Your Wife": {
+    title: "A message from your wife",
+    text: "Happy birthday, my love! May this new year of your life bring you joy, peace, good health, and beautiful memories. I pray that we continue to share love, laughter, and many more birthdays together. ❤️"
+  },
+  "Dama": {
+    title: "A message from Dama",
+    text: "Happy birthday, Zack! May your new chapter be filled with happiness, opportunities, laughter, and blessings. Keep being the one and only you. Enjoy your special day!"
+  },
+  "Caro": {
+    title: "A message from Caro",
+    text: "Happy birthday! Wishing you love, peace, laughter, good health, and a year full of beautiful surprises. May this next chapter be your best one yet!"
+  },
+  "Sylvia": {
+    title: "A message from Sylvia",
+    text: "Happy birthday, Uncle Zack! May you always have reasons to smile, people who appreciate you, and beautiful moments to look forward to. Wishing you a wonderful year ahead!"
+  }
+};
+
+const randomFacts = [
+  "WARNING: Uncle Zack may cause unexpected laughter. Side effects include family jokes that never expire.",
+  "Official Zackverse finding: there is only one original Uncle Zack. All attempts to find a substitute have been unsuccessful.",
+  "Birthday rule number one: Uncle Zack is allowed to receive compliments without pretending to be embarrassed.",
+  "New discovery: the best family stories usually get even funnier every time they're retold.",
+  "Scientific conclusion: a birthday is the perfect excuse to celebrate someone who deserves appreciation all year round."
+];
+
+/* Change this to any secret word you like. */
+const SECRET_WORD = "zack";
+
+const secretMessages = [
+  "Surprise! 🎉 If you've made it this far, consider this your reminder that you are deeply appreciated. May the coming year hold more joy, more laughter, more love, and wonderful memories. Happy birthday, Uncle Zack!",
+  "One last thing: you are loved for who you are, not just for what you do for other people. Here's to a beautiful new chapter. ❤️"
+];
+
+/* =====================================================
+   INTERACTIONS
+===================================================== */
+
+// Create a subtle starfield for the main background.
+(function createSky() {
+  const sky = document.getElementById("sky");
+  for (let i = 0; i < 85; i++) {
+    const dot = document.createElement("span");
+    dot.className = "sky-dot";
+    dot.style.left = Math.random() * 100 + "%";
+    dot.style.top = Math.random() * 100 + "%";
+    dot.style.animationDelay = Math.random() * 4 + "s";
+    dot.style.animationDuration = (2 + Math.random() * 4) + "s";
+    sky.appendChild(dot);
+  }
+})();
+
+// Enter the universe.
+document.getElementById("enter-btn").addEventListener("click", () => {
+  document.getElementById("opening").classList.add("hidden");
+  document.getElementById("main-site").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  revealVisibleSections();
+});
+
+function goTo(id) {
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  if (id === "opening") {
+    document.getElementById("main-site").classList.add("hidden");
+    document.getElementById("opening").classList.remove("hidden");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// Family message cards.
+function openMessage(name) {
+  const message = familyMessages[name];
+  if (!message) return;
+
+  document.getElementById("message-from").textContent = "A message from " + name;
+  document.getElementById("message-title").textContent = message.title;
+  document.getElementById("message-text").textContent = message.text;
+
+  document.querySelector(".message-panel").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+// Funny discoveries.
+function showRandomFact() {
+  const fact = randomFacts[Math.floor(Math.random() * randomFacts.length)];
+  const output = document.getElementById("random-fact");
+  output.textContent = fact;
+  output.style.color = "#e7c77e";
+  output.style.padding = "12px";
+  output.style.animation = "appear .4s ease";
+}
+
+// Expand story chapters.
+document.querySelectorAll(".story-toggle").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".story-item");
+    const isOpen = item.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.querySelector(".plus").textContent = isOpen ? "−" : "＋";
+  });
+});
+
+// Open the personal letter.
+document.getElementById("letter-btn").addEventListener("click", () => {
+  const letter = document.getElementById("letter-content");
+  letter.classList.toggle("hidden");
+
+  const isOpen = !letter.classList.contains("hidden");
+  document.getElementById("letter-btn").textContent =
+    isOpen ? "CLOSE YOUR LETTER ✉" : "OPEN YOUR LETTER ✉";
+
+  if (isOpen) {
+    setTimeout(() => {
+      letter.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
+  }
+});
+
+// Secret unlock.
+document.getElementById("secret-form").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const entered = document.getElementById("secret-input").value.trim().toLowerCase();
+  const result = document.getElementById("secret-result");
+
+  if (entered === SECRET_WORD.toLowerCase()) {
+    result.innerHTML = "";
+    secretMessages.forEach(message => {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = message;
+      result.appendChild(paragraph);
+    });
+  } else {
+    result.textContent = "Not quite! Try again, birthday legend. ✨";
+  }
+});
+
+// Fade sections into view as they appear.
+function revealVisibleSections() {
+  const elements = document.querySelectorAll(".reveal");
+
+  if (!("IntersectionObserver" in window)) {
+    elements.forEach(element => element.classList.add("visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  elements.forEach(element => observer.observe(element));
+}
+
+revealVisibleSections();
+</script>
+
+</body>
+</html>
+
